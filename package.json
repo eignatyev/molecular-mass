@@ -1,0 +1,12 @@
+{
+    "name": "molecular-mass",
+    "version": "1.0.0",
+    "description": "Molecular mass calculator",
+    "main": "bin/index.js",
+    "author": "Egor Ignatyev <egoriggy@gmail.com>",
+    "license": "MIT",
+    "private": false,
+    "devDependencies": {
+        "jest": "^26.6.3"
+    }
+}
