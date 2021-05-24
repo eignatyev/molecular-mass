@@ -6,7 +6,7 @@ Calculate molecular mass in atomic mass units
 
 ```bash
 yarn add molecular-mass # install dependencies
-molecular-mass H20      # => 20.16
+yarn molecular-mass H20 # => 20.16
 ```
 
 ## Setup and use locally
