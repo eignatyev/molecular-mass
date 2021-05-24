@@ -1,0 +1,25 @@
+name: publish
+
+on:
+  workflow_dispatch:
+
+jobs:
+  build_and_test:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: setup Node.js (version ${{ matrix.node-version }})
+        uses: actions/setup-node@v1
+        with:
+          node-version: '14.x'
+          registry-url: 'https://registry.npmjs.org'
+          scope: '@egoriggy'
+
+      - name: unit test (Node version - ${{ matrix.node-version }})
+        run: |
+          npm i
+          npm publish
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_AUTH_TOKEN }}

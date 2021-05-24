@@ -1,16 +1,25 @@
 {
     "name": "molecular-mass",
     "version": "1.0.0",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/eignatyev/molecular-mass.git"
+    },
     "description": "Molecular mass calculator",
     "main": "bin/index.js",
     "author": "Egor Ignatyev <egoriggy@gmail.com>",
     "license": "MIT",
     "private": false,
+    "bin": {
+        "molecular-mass": "bin/index.js"
+    },
     "scripts": {
-        "prettier": "prettier ./src/**/*.ts --list-different",
+        "build": "yarn clean && yarn tsc && cp src/amu-per-element.csv bin && chmod +x bin/index.js",
+        "clean": "rm -rf bin",
         "lint": "yarn prettier && eslint ./src/**/*.ts",
-        "test": "jest --coverage",
-        "postinstall": "husky install"
+        "prettier": "prettier ./src/**/*.ts --list-different",
+        "postinstall": "husky install",
+        "test": "jest --coverage"
     },
     "dependencies": {
         "csv-parse": "^4.15.4"
