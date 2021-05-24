@@ -19,6 +19,7 @@ jobs:
       - name: publish (Node version - ${{ matrix.node-version }})
         run: |
           npm i
+          npm login
           npm publish
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_AUTH_TOKEN }}
