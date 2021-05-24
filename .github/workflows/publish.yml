@@ -10,16 +10,23 @@ jobs:
     steps:
       - uses: actions/checkout@v2
 
-      - name: setup Node.js (version ${{ matrix.node-version }})
-        uses: actions/setup-node@v1
+      - name: setup Node.js
+        uses: actions/setup-node@v2
         with:
-          node-version: '14.x'
+          always-auth: true
+          node-version: '12.x'
           registry-url: 'https://registry.npmjs.org'
 
-      - name: publish (Node version - ${{ matrix.node-version }})
+      - name: build
         run: |
-          npm i
-          npm login
-          npm publish
+          yarn install --freeze-lockfile
+          yarn build
+
+      - name: publish
+        run: |
+          echo $NPM_AUTH_TOKEN
+          echo $NODE_AUTH_TOKEN
+          yarn publish
         env:
-          NODE_AUTH_TOKEN: ${{ secrets.NPM_AUTH_TOKEN }}
+          NODE_AUTH_TOKEN: ${{ secrets.BANANA }}
+          # NODE_AUTH_TOKEN: ${{ secrets.NPM_AUTH_TOKEN }}
