@@ -1,0 +1,40 @@
+name: CI
+
+on:
+  push:
+    branches: [ master ]
+  pull_request:
+    branches: [ master ]
+
+jobs:
+  build_and_test:
+  
+    runs-on: ubuntu-latest
+    
+    strategy:
+      matrix:
+        node-version: [12.x, 14.x, 15.x]
+        
+    steps:
+      - uses: actions/checkout@v2
+      
+      - name: setup Node.js (version ${{ matrix.node-version }})
+        uses: actions/setup-node@v1
+        with:
+          node-version: ${{ matrix.node-version }}
+          
+      - name: install (Node version - ${{ matrix.node-version }})
+        run: |
+          yarn
+          
+      - name: build (Node version - ${{ matrix.node-version }})
+        run: |
+          yarn build
+          
+      - name: lint (Node version - ${{ matrix.node-version }})
+        run: |
+          yarn lint
+          
+      - name: unit test (Node version - ${{ matrix.node-version }})
+        run: |
+          yarn test
