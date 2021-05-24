@@ -4,7 +4,7 @@ on:
   workflow_dispatch:
 
 jobs:
-  build_and_test:
+  publish:
     runs-on: ubuntu-latest
 
     steps:
@@ -15,9 +15,8 @@ jobs:
         with:
           node-version: '14.x'
           registry-url: 'https://registry.npmjs.org'
-          scope: '@egoriggy'
 
-      - name: unit test (Node version - ${{ matrix.node-version }})
+      - name: publish (Node version - ${{ matrix.node-version }})
         run: |
           npm i
           npm publish
