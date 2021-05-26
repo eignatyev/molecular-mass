@@ -4,19 +4,19 @@ Calculate molecular mass in atomic mass units
 
 ## npm package
 
-## Install
+### Install
 
 ```_
 yarn add molecular-mass
 ```
 
-## Use CLI
+### Use CLI
 
 ```_
 yarn molecular-mass H20 # => 18.02
 ```
 
-## Use API
+### Use API
 
 ```ts
 import { calculateMolecularMass } from 'molecular-mass';
