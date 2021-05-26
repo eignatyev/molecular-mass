@@ -2,24 +2,47 @@
 
 Calculate molecular mass in atomic mass units
 
-## Install and use as an npm package
+## npm package
 
-```bash
-yarn add molecular-mass # install dependencies
+## Install
+
+```_
+yarn add molecular-mass
+```
+
+## Use CLI
+
+```_
 yarn molecular-mass H20 # => 18.02
 ```
 
-## Setup and use locally
+## Use API
 
-```bash
-yarn                    # install dependencies
+```ts
+import { calculateMolecularMass } from 'molecular-mass';
+
+console.log(calculateMolecularMass('H2O')); // => 18.02
+```
+
+## Source code
+
+### Clone
+
+```_
+git clone https://github.com/eignatyev/molecular-mass.git
+cd molecular-mass
+```
+
+### Build and use
+
+```_
+yarn
 yarn build              # compile the project
 node bin/index.js H20   # => 18.02
 ```
 
-## Run unit tests
+### Run unit tests
 
-```bash
-yarn
+```_
 yarn test
 ```

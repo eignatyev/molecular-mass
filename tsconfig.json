@@ -1,7 +1,7 @@
 {
     "compilerOptions": {
         "baseUrl": "src",
-        "declaration": false,
+        "declaration": true,
         "esModuleInterop": true,
         "lib": ["es2020", "ES2018.Promise"],
         "module": "commonjs",
