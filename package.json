@@ -18,7 +18,7 @@
         "clean": "rm -rf bin",
         "lint": "yarn prettier && eslint ./src/**/*.ts",
         "prettier": "prettier ./src/**/*.ts --list-different",
-        "test": "jest --coverage"
+        "test": "jest tests --coverage"
     },
     "dependencies": {
         "csv-parse": "^4.15.4"
